@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Paleta base — dark profundo */
+    --bg-deep:       10 10 20;
+    --bg-surface:    15 15 30;
+    --bg-elevated:   20 20 40;
+    --bg-glass:      255 255 255;
+
+    /* Primária — violeta neon */
+    --primary:       252 112 255;   /* #fc70ff */
+    --primary-dim:   180 60 220;
+    --primary-glow:  252 112 255;
+
+    /* Secundária — azul neon */
+    --accent-blue:   80 160 255;    /* #50a0ff */
+
+    /* Texto */
+    --text-base:     210 215 240;
+    --text-muted:    130 140 170;
+    --text-bright:   240 242 255;
+
+    /* Bordas */
+    --border-subtle: 255 255 255;
+
+    /* Semânticas (mapeadas pra Tailwind vars) */
+    --background:    222 47% 5%;
+    --foreground:    220 40% 94%;
+    --card:          225 45% 8%;
+    --card-foreground: 220 40% 94%;
+    --border:        220 30% 16%;
+    --input:         225 40% 10%;
+    --primary-tw:    280 85% 70%;
+    --primary-foreground: 0 0% 100%;
+    --muted:         225 40% 10%;
+    --muted-foreground: 215 18% 55%;
+    --destructive:   0 65% 55%;
+    --ring:          280 85% 70%;
+  }
+
+  * {
+    border-color: rgba(var(--border-subtle) / 0.08);
+    box-sizing: border-box;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: rgb(var(--bg-deep));
+    color: rgb(var(--text-base));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(var(--primary) / 0.25); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(var(--primary) / 0.45); }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(var(--bg-glass) / 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--bg-glass) / 0.08);
+}
+
+.glass-strong {
+  background: rgba(var(--bg-glass) / 0.07);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(var(--bg-glass) / 0.12);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(var(--primary-glow) / 0.25),
+              0 0 60px rgba(var(--primary-glow) / 0.08);
+}
+.glow-primary-sm {
+  box-shadow: 0 0 10px rgba(var(--primary-glow) / 0.3);
+}
+
+/* Input base melhorado */
+input, select, textarea {
+  outline: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
