@@ -58,7 +58,9 @@
       "Bash(git config *)",
       "Bash(powershell -Command \"Invoke-RestMethod -Uri 'https://api.github.com/user/repos' -Method POST -Headers @{Authorization='token '+\\(git config --global credential.helper\\); 'User-Agent'='git'} -Body \\('{\\\\\"name\\\\\":\\\\\"neurosync-ai\\\\\",\\\\\"private\\\\\":true,\\\\\"description\\\\\":\\\\\"NeuroSync AI - Sistema de Gestao de Clinica Neuropsicologica\\\\\"}' | ConvertFrom-Json | ConvertTo-Json\\)\")",
       "Bash(git remote *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "PowerShell(head *)",
+      "PowerShell(& \"C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\venv\\\\Scripts\\\\pip.exe\" freeze 2>&1)"
     ]
   }
 }
