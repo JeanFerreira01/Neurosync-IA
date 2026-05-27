@@ -1,6 +1,6 @@
 ---
 name: project-neurosync
-description: "NeuroSync AI — Sprint 5 em andamento 27/05/2026. Estoque integrado com laudos: dedução automática ao criar laudo."
+description: "NeuroSync AI — Sprints 1-5A concluídas 27/05/2026. PRÓXIMA SESSÃO: iniciar Sprint 6 (Financeiro + Dashboard avançado)."
 metadata: 
   node_type: memory
   type: project
@@ -65,28 +65,44 @@ Python do venv: `C:\Users\Jean\Desktop\projetoclinica\venv\Scripts\python.exe`
 - `backend/.env` está no `.gitignore` ✅
 - `backend/.env.example` criado com todas as variáveis
 
-## Próximas Sprints (a fazer)
+## Sprints concluídas — Sprint 5A ✅ (27/05/2026)
 
-### Sprint 5 — Financeiro + Estoque (em andamento — 27/05/2026)
+### Estoque integrado com Laudos ✅
+- `_deduct_inventory()` no `ReportSerializer.create()` — deduz 1 unidade por teste em `selected_tests`
+- `InventoryPage`: agrupamento Categoria → Testes → Produtos, sempre visível (sem collapse por teste)
+- Chips de filtro mostram categorias mesmo sem produtos (conta escalas, não produtos)
+- `stock_info.product_id` no backend — frontend usa direto para movimentações (fix bug silencioso)
+- Botão "+ Adicionar" em todos os testes, pré-preenche quantidade=1
+- Deletar/editar escalas direto do estoque
 
-#### Estoque integrado com Laudos ✅ (concluído 27/05/2026)
-- **Backend** (`apps/reports/serializers.py`): `_deduct_inventory()` chamado no `create()` — deduz 1 unidade por teste em `selected_tests`, criando `StockMovement` tipo `INTERNAL`
-- **Frontend** (`src/pages/reports/NewReportPage.tsx`): reescrita para carregar escalas dinamicamente via `useScales()`. Mostra dot colorido de estoque (ok/low/zero/untracked) por teste. Avisa no painel esquerdo quantos materiais estão zerados/baixos
-- **Frontend** (`src/hooks/useReports.ts`): `useCreateReport.onSuccess` invalida queries `products`, `product-alerts`, `neurotest-scales`, `neurotest-stock-summary` para refresh automático
-- **Matching**: `selected_tests` usa `scale.abbreviation || scale.name` que bate exatamente com `Product.test_name` (case-insensitive no backend)
-- **Pré-requisito**: escalas precisam estar cadastradas em Neurotestes para aparecer no seletor do laudo
+### Repo GitHub ✅
+- https://github.com/JeanFerreira01/Neurosync-IA.git
+- Commit: Sprints 1-5A + .claude/memory + REQUIREMENTS.txt
 
-#### Pendente na Sprint 5
-- Módulo financeiro: lançamentos, receitas, despesas, relatórios gerenciais
+## ⚡ PRÓXIMA SESSÃO — Sprint 6 (iniciar imediatamente)
 
-### Sprint 6 — Dashboard avançado + Relatórios gerenciais
-- Gráficos no dashboard (consultas por dia, receita, pacientes ativos)
-- Exportação de relatórios gerenciais em PDF/Excel
+### Sprint 6 — Financeiro + Dashboard avançado
+**Módulo Financeiro** (`apps/financial/` já existe no backend):
+- Lançamentos de receitas e despesas (modelo `Transaction` já tem migrations)
+- Categorias: consulta, avaliação, material, salário, aluguel, outro
+- Listagem com filtro por período, tipo e categoria
+- Totais: receita, despesa, saldo do período
+- Gráfico de barras mensal (Recharts) na página financeira
+- Exportação básica
+
+**Dashboard avançado** (`src/pages/dashboard/`):
+- Consultas por dia da semana (gráfico de linha — Recharts já instalado)
+- Receita mensal vs despesas (gráfico de barras)
+- Cards: pacientes ativos, consultas do mês, laudos emitidos, saldo do caixa
+- Testes mais aplicados (ranking top 5)
 
 ### Sprint 7 — WhatsApp + Telemedicina + Notificações
-- Integração WhatsApp (confirmação de consultas automática)
+- Integração WhatsApp (confirmação automática de consultas)
 - Módulo telemedicina (videochamada)
 - Notificações em tempo real (Django Channels / WebSocket)
+
+**Why:** Usuário pediu explicitamente para salvar em memória e iniciar Sprint 6 na próxima sessão.
+**How to apply:** Ao iniciar nova sessão, subir os dois servidores e começar direto pelo módulo financeiro (backend `apps/financial/views.py` + frontend `src/pages/financial/FinancialPage.tsx`).
 
 ## Arquivos-chave
 ```
