@@ -60,7 +60,9 @@
       "Bash(git remote *)",
       "Bash(git push *)",
       "PowerShell(head *)",
-      "PowerShell(& \"C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\venv\\\\Scripts\\\\pip.exe\" freeze 2>&1)"
+      "PowerShell(& \"C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\venv\\\\Scripts\\\\pip.exe\" freeze 2>&1)",
+      "Bash(C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\venv\\\\Scripts\\\\python.exe manage.py runserver)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\backend\"; $env:DJANGO_SETTINGS_MODULE = \"config.settings.development\"; C:\\\\Users\\\\Jean\\\\Desktop\\\\projetoclinica\\\\venv\\\\Scripts\\\\python.exe manage.py runserver)"
     ]
   }
 }
